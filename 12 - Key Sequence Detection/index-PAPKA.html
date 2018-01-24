@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+
+  const secretSequence = 'wesbos';
+  const pressedSequence = [];
+
+  window.addEventListener('keyup', (e) => {
+    pressedSequence.push(e.key);
+    pressedSequence.splice(-secretSequence.length - 1, pressedSequence.length - secretSequence.length);
+    if (pressedSequence.join('').includes(secretSequence)) {
+      console.log('Secret sequence has been typed!');
+      cornify_add();
+    }
+  });
+
+</script>
+</body>
+</html>
